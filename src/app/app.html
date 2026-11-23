@@ -1,0 +1,49 @@
+
+<div id="Gallery">
+  <div class="container ">
+    <div class="row ">
+
+        <ng-container *ngFor="let img of images; index as i">
+         <div class="col-lg-4 col-md-6 col-sm-16 my-5">
+           <div class="item  rounded-3 ">
+
+          <img
+            src="assets/images_ex4/{{img}}"
+            alt
+            class="img-fluid" #currentImg [attr.data-index]="i">
+            <div class="layout" >
+              <i class="fa-regular fa-square-plus" (click)="openPopUp(popup,popImg,currentImg)"></i>
+            </div>
+        </div>
+
+         </div>
+        </ng-container>
+       </div>
+    </div>
+  </div>
+
+
+
+<!--  popup  -->
+
+
+<div class="popUp" #popup (click)="closePopUp(popup)">
+  <div class="box rounded-3 overflow-hidden" (click)="stop($event)">
+     <img
+        src="assets\images_ex4\1.jpeg"
+        alt
+        class="img-fluid" #popImg>
+        <i class="fa-regular fa-circle-xmark exit" (click)="closePopUp(popup)"></i>
+       <i class="fa-solid fa-circle-arrow-right next" (click)="nextImg()"></i>
+       <i class="fa-solid fa-circle-arrow-left prev" (click)="prevImg()"></i>
+       <ul class="list-unstyled  d-flex column-gap-2">
+        <ng-container *ngFor="let img of images; index as i" >
+          <li class="{{currentIndexImg == i ? 'active':''}}" (click)="changeImg(i)">{{i+1}}</li>
+        </ng-container>
+       </ul>
+
+  </div>
+</div>
+
+
+

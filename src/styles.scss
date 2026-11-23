@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@use "bootstrap/scss/bootstrap" as *;
+
+@use "@fortawesome/fontawesome-free/css/all.min.css";
+
+// @use "bootstrap/dist/css/bootstrap.min.css";
+@use "../src/keyframes.css" as *;
+
+body{
+
+  background:  linear-gradient(to left,
+     rgba(224, 242, 254, 0.45) 0%,
+    rgba(137, 207, 240, 0.20) 45%,
+    rgba(111, 176, 232, 0.25) 75%,
+    rgba(224, 242, 254, 0.45) 100%) ,url("../public/assets/images_ex4/bg.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+   #Gallery{
+  // height: 100vh;
+    overflow: hidden;
+    position: relative;
+     &::before{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+       background: linear-gradient(rgba(0,0,0,.2)), url("../public/assets/images_ex4/stars1.png");
+         background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+       position: absolute;
+       z-index:1 ;
+       top: 0;
+       left: 0;
+       animation: zoom 4s infinite  alternate-reverse linear;
+
+    }
+   }
+}
+
